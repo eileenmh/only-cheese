@@ -1,29 +1,44 @@
 const express = require('express');
 const router = express.Router();
 
-// Login Landing Page API route
+// Login Landing Page API routes
 router.get('/', (req, res) => {
   res.send('Welcome to the OnlyCheese* Login Page!');
 });
 
-// Cheesfolio Page
+router.post('/login', (req, res) => {
+  // Your login logic here
+  res.send('Logged in successfully!');
+});
+
+// Cheesfolio Page API routes
 router.get('/Cheesfolio', (req, res) => {
   res.send('Welcome to the Cheese Folio!');
 });
 
-// Message Board API route
+router.post('/addCheese', (req, res) => {
+  // Your add cheese logic here
+  res.send('Cheese added successfully!');
+});
+
+// Message Board API routes
 router.get('/message-board', (req, res) => {
   res.send('Welcome to the OnlyCheese* Message Board!');
 });
 
-// Chat Room API route
+// Chat Room API routes
 router.get('/chat-room', (req, res) => {
   res.send('Welcome to the OnlyCheese* Chat Room!');
 });
 
-// Try a New Cheese API route
+// Try a New Cheese API routes
 router.get('/newCheese', (req, res) => {
   res.send('Welcome to the OnlyCheese* Try a new Cheese Today!');
+});
+
+router.post('/submitCheese', (req, res) => {
+  // Your submit cheese logic here
+  res.send('Cheese submitted successfully!');
 });
 
 module.exports = router;
