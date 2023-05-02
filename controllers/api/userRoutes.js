@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  // Your login logic here
   res.send('Logged in successfully!');
 });
 
@@ -17,7 +16,7 @@ router.get('/Cheesfolio', (req, res) => {
 });
 
 router.post('/addCheese', (req, res) => {
-  // Your add cheese logic here
+// Added Cheese
   res.send('Cheese added successfully!');
 });
 
@@ -35,10 +34,4 @@ router.get('/chat-room', (req, res) => {
 router.get('/newCheese', (req, res) => {
   res.send('Welcome to the OnlyCheese* Try a new Cheese Today!');
 });
-
-router.post('/submitCheese', (req, res) => {
-  // Your submit cheese logic here
-  res.send('Cheese submitted successfully!');
-});
-
 module.exports = router;
