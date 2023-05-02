@@ -1,9 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-// Home Page API route
-router.get('/', (req, res) => {
-  res.send('Welcome to OnlyCheese* Home Page!');
+router.get("/", (req, res) => {
+  res.render("homepage");
 });
 
 module.exports = router;
