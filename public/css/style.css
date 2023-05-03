@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "Nilky & Miky by Keithzo";
+    src: url("../assets/fonts/Nilky\ &\ Miky\ by\ Keithzo\ \(7NTypes\).otf");
+}
+
 #logo {
     padding-bottom: 0rem;
 }
@@ -8,8 +13,13 @@
 
 .navbar, html {
     background-color: #fff789;
+    font-family: "Nilky & Miky by Keithzo";
 }
 
 body {
     padding-top: 5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Nilky & Miky by Keithzo";
 }
