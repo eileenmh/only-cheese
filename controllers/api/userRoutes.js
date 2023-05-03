@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const withAuth = require('../../utils/auth')
 
 // Login Landing Page API routes
 router.get('/', (req, res) => {
@@ -39,7 +40,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Cheesfolio Page API routes
-router.get('/Cheesfolio', (req, res) => {
+router.get('/Cheesfolio', withAuth, (req, res) => {
   res.send('Welcome to the Cheese Folio!');
 });
 
@@ -49,17 +50,17 @@ router.post('/addCheese', (req, res) => {
 });
 
 // Message Board API routes
-router.get('/message-board', (req, res) => {
+router.get('/message-board', withAuth, (req, res) => {
   res.send('Welcome to the OnlyCheese* Message Board!');
 });
 
 // Chat Room API routes
-router.get('/chat-room', (req, res) => {
+router.get('/chat-room', withAuth, (req, res) => {
   res.send('Welcome to the OnlyCheese* Chat Room!');
 });
 
 // Try a New Cheese API routes
-router.get('/newCheese', (req, res) => {
+router.get('/newCheese', withAuth, (req, res) => {
   res.send('Welcome to the OnlyCheese* Try a new Cheese Today!');
 });
 
