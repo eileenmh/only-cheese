@@ -10,6 +10,10 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
+router.get("/", (req, res) => {
+  res.render("login");
+});
+
 // Cheesfolio Page API routes
 router.get("/Cheesfolio", (req, res) => {
   res.send("Welcome to the Cheese Folio!");
