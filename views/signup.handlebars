@@ -1,18 +1,18 @@
-<script src="./js/createAccount.js"></script>
 <main>
     <section class="has-text-centered">
-    <h2 class="title is-1">Create an Account</h2>
-    <p class="block">Please fill in this form to create an account.</p>
+        <h2 class="title is-1">Create an Account</h2>
+        <p class="block">Please fill in this form to create an account.</p>
     </section>
 
     <section>
         <div class="container is-max-desktop">
-            <form class="mx-5">
+            <form class="mx-5 signup-form">
 
                 <div class="field">
-                    <label class="label" for="name">First Name</label>
+                    <label class="label" for="name">Username</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="Enter your first name" name="firstName" id="name" required>
+                        <input id="username-signup" class="input" type="text" placeholder="Enter your username"
+                            name="userName" id="name" required>
                         <span class="icon is-left">
                             <i class="fas fa-cheese"></i>
                         </span>
@@ -22,7 +22,8 @@
                 <div class="field">
                     <label class="label" for="email">Email Address</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="email" placeholder="Enter your email address" name="email" id="email" required>
+                        <input id="email-signup" class="input" type="email" placeholder="Enter your email address"
+                            name="email" id="email" required>
                         <span class="icon is-small is-left">
                             <i class="fas fa-envelope"></i>
                         </span>
@@ -32,7 +33,8 @@
                 <div class="field">
                     <label class="label" for="psw">Password</label>
                     <div class="control has-icons-left">
-                        <input class="input" type="password" placeholder="Enter a password" name="password" required>
+                        <input id="password-signup" class="input" type="password" placeholder="Enter a password"
+                            name="password" required>
                         <span class="icon is-small is-left">
                             <i class="fa-solid fa-lock"></i>
                         </span>
@@ -51,3 +53,5 @@
     </section>
 
 </main>
+
+<script type="application/javascript" src="./js/signup.js"></script>
