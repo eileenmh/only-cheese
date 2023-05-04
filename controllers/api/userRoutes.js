@@ -43,12 +43,8 @@ router.post('/signup', async (req, res) => {
         .json({ message: 'Looks like you already have an account, please try logging in.' });
       return;
     }
-    console.log('req.body', req.body);
     userData = await User.create({ name: req.body.username, email: req.body.email, password: req.body.password });
-    console.log('Jamies auto-generated ID', userData.id);
-
-    // res.json({ user: userData, message: 'Thank you for signing up. You are now logged in!' });
-
+    console.log('Users auto-generated ID', userData.id);
 
     req.session.save(() => {
       req.session.user_id = userData.id;
