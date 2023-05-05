@@ -1,41 +1,69 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const bcrypt = require("bcrypt");
+const sequelize = require("../config/connection");
 
-class User extends Model {}
+class User extends Model {
+  checkPassword(loginPw) {
+    return bcrypt.compareSync(loginPw, this.password);
+  }
+}
 
 User.init(
   {
-    // Manually define the primary key
-    book_id: {
+    id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
     },
     name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     email: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
     },
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      },
     },
     bio: {
-      type: DataTypes.TEXT
+      type: DataTypes.TEXT,
     },
     city: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     state: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
     },
     user_image: {
-        type: DataTypes.STRING
-    }
+      type: DataTypes.STRING,
+    },
+    // cheeses: {
+    //   type: DataTypes.ARRAY, // Jamie - update to array of cheese models
+    //   allowNull: true,
+    // }
   },
   {
+    hooks: {
+      beforeCreate: async (newUserData) => {
+        newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        return newUserData;
+      },
+    },
     sequelize,
-    modelName: 'user'
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "user",
   }
 );
 
