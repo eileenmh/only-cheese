@@ -15,7 +15,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert('Failed to sign up.');
+      alert('User or Email Already Exist.');
     }
   }
 };

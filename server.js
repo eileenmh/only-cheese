@@ -4,12 +4,13 @@ const session = require("express-session");
 const routes = require("./controllers");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
+const chatserver = require('./chatroom/server');
 // const routes = require('./controllers');
 const sequelize = require('./config/connection');
 // const helpers = require('./utils/helpers');
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
 // // Sets up session and connect to our Sequelize db
@@ -46,6 +47,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
+
+chatserver.server.listen(3000, () => {
+    console.log('chat server listening on 3000');
+});
 
 sequelize.sync().then(() => {
 app.listen(PORT, () =>
