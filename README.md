@@ -37,12 +37,18 @@ The following link shows the web application's appearance and functionality:
 https://only-cheese.herokuapp.com/
 
 
+## Contributing
+
+
+
+
+
 
 ## License
 
 MIT License
 
-Copyright (c) [2023] [TaylorGreen]
+Copyright (c) [2023] [Taylor Green, Eileen Harvey, Adam Johnson, Jamie Nadel, Damar Ellis]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
