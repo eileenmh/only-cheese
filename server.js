@@ -42,6 +42,14 @@ const hbs = exphbs.create({});
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+// Route to display static src images
+app.get("/static", (req, res) => {
+  res.render("static");
+});
+app.use(express.static("public"));
+  
+
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
