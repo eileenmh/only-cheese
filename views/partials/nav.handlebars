@@ -1,11 +1,35 @@
-<ul>
-<!-- if user is NOT logged in -->
-    {{!-- {{#if }}  --}}
-    <li><a href="login">Login</a></li>
-    <li><a href="sign-up">Create an Account</a></li>
-    {{!-- {{else}} --}}
-    <li><a href="cheesefolio">My Cheesefolio</a></li>
-    <li><a href="cheese-date">Cheese Date</a></li>
-    <li><a href="logout">Logout</a></li>
-    {{!-- {{/if}} --}}
-</ul>
+<script src="./js/navbar-burger.js"></script>
+<nav class="navbar is-fixed-top is-transparent is-size-3">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/" id="logo">
+            <img src="../assets/images/noun-cheese-5009417.svg" id="cheese-wine-icon">
+        </a>
+    </div>
+
+    {{!-- mobile menu, toggles open and close --}}
+    <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pages">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </a>
+
+    <div id="pages" class="navbar-menu">
+        <div class="navbar-start">
+            {{!-- if user is logged in, display app pages --}}
+            {{#if logged_in}} 
+            <a class="navbar-item" href="cheesefolio">My Cheesefolio</a>
+            <a class="navbar-item" href="cheese-date">Cheese Date</a>
+            {{/if}}
+        </div>
+
+        <div class="navbar-end">
+            {{!-- If user is logged in, show logout button --}}
+            {{#if logged_in}}
+            <a class="navbar-item" href="logout">Logout</a>
+            {{else}}
+            <a class="navbar-item" href="login">Login</a>
+            <a class="navbar-item" href="signup">Sign-Up</a>
+            {{/if}}
+        </div>
+    </div>
+</nav>
