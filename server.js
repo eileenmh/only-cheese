@@ -4,9 +4,9 @@ const session = require("express-session");
 const routes = require("./controllers");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-const chatserver = require('./chatroom/server');
+const chatserver = require("./chatroom/server");
 // const routes = require('./controllers');
-const sequelize = require('./config/connection');
+const sequelize = require("./config/connection");
 // const helpers = require('./utils/helpers');
 
 const app = express();
@@ -35,7 +35,7 @@ const sess = {
   }),
 };
 
-// app.use(session(sess));
+app.use(session(sess));
 
 const hbs = exphbs.create({});
 
@@ -49,13 +49,13 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(routes);
 
 chatserver.server.listen(3000, () => {
-    console.log('chat server listening on 3000');
+  console.log("chat server listening on 3000");
 });
 
 sequelize.sync().then(() => {
-app.listen(PORT, () =>
-  console.log(
-    `\nServer running on port ${PORT}. Visit http://localhost:${PORT}`
-  )
-);
+  app.listen(PORT, () =>
+    console.log(
+      `\nServer running on port ${PORT}. Visit http://localhost:${PORT}`
+    )
+  );
 });
