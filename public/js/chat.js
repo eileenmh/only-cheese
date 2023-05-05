@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io("ws://localhost:3000");
 
 var messages = document.getElementById('messages');
 var form = document.getElementById('form');
