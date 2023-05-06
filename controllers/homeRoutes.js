@@ -1,74 +1,63 @@
 const express = require("express");
 const router = express.Router();
-const withAuth = require('../utils/auth')
+const withAuth = require("../utils/auth");
 
+// Landing Page
 router.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("homepage", {
+    logged_in: req.session.logged_in,
+  });
 });
 
-router.get("/login", (req, res) => {
-  res.render("login");
-});
-
-router.get("/", (req, res) => {
-  res.render("login");
-});
-
-// Cheesfolio Page API routes
-router.get("/Cheesfolio", (req, res) => {
-  res.send("Welcome to the Cheese Folio!");
-});
-
-router.post("/addCheese", (req, res) => {
-  // Added Cheese
-  res.send("Cheese added successfully!");
-});
-
-// Message Board API routes
-router.get("/message-board", (req, res) => {
-  res.send("Welcome to the OnlyCheese* Message Board!");
-});
-
-// Chat Room API routes
-router.get("/chat-room", (req, res) => {
-  res.send("Welcome to the OnlyCheese* Chat Room!");
-});
-
-router.get("/", (req, res) => {
-  res.render("homepage");
-});
-
-router.get("/login", (req, res) => {
-  res.render("login");
-});
-
+// Sign-Up Page -- if already logged in, redirect to homepage
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  if (req.session.logged_in) {
+    res.redirect("/");
+  } else {
+    res.render("signup", {
+      logged_in: req.session.logged_in,
+    });
+  }
 });
 
-// Cheesfolio Page API routes
-router.get("/Cheesfolio", (req, res) => {
-  res.send("Welcome to the Cheese Folio!");
+// Login Page -- if already logged in, redirect to homepage
+router.get("/login", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+  } else {
+    res.render("login", {
+      logged_in: req.session.logged_in,
+    });
+  }
 });
 
-router.post("/addCheese", (req, res) => {
-  // Added Cheese
-  res.send("Cheese added successfully!");
+/***
+REQUIRE LOGIN via withAuth
+***/
+// Cheesefolio (i.e., Profile Page)
+router.get("/cheesefolio", withAuth, (req, res) => {
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
 });
 
-// Message Board API routes
-router.get("/message-board", (req, res) => {
-  res.send("Welcome to the OnlyCheese* Message Board!");
+router.get("/cheesefolio-update", withAuth, (req, res) => {
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
+});
+
+router.get("/cheese-date", withAuth, (req, res) => {
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 // Chat Room API routes
-router.get("/chat-room", (req, res) => {
-  res.send("Welcome to the OnlyCheese* Chat Room!");
-});
-
-// Try a New Cheese API routes
-router.get("/newCheese", (req, res) => {
-  res.send("Welcome to the OnlyCheese* Try a new Cheese Today!");
+router.get("/chat-room", withAuth, (req, res) => {
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 module.exports = router;
