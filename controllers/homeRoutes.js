@@ -47,6 +47,12 @@ router.get("/cheesefolio-update", withAuth, (req, res) => {
   });
 });
 
+router.get("/cheese-date", withAuth, (req, res) => {
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
+});
+
 // Chat Room API routes
 router.get("/chat-room", withAuth, (req, res) => {
   res.render("placeholder", {
