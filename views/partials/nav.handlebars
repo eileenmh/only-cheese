@@ -1,4 +1,5 @@
-<script src="./js/navbar-burger.js"></script>
+<script src="./js/navbar.js"></script>
+
 <nav class="navbar is-fixed-top is-transparent is-size-3">
     <div class="navbar-brand">
         <a class="navbar-item" href="/" id="logo">
@@ -25,7 +26,7 @@
         <div class="navbar-end">
             {{!-- If user is logged in, show logout button --}}
             {{#if logged_in}}
-            <a class="navbar-item" href="logout">Logout</a>
+            <a class="navbar-item" id="logout">Logout</a>
             {{else}}
             <a class="navbar-item" href="login">Login</a>
             <a class="navbar-item" href="signup">Sign-Up</a>
