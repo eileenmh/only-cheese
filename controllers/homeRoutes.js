@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const withAuth = require('../utils/auth')
+const withAuth = require("../utils/auth");
 
 router.get("/", (req, res) => {
   res.render("homepage");
@@ -15,8 +15,8 @@ router.get("/", (req, res) => {
 });
 
 // Cheesfolio Page API routes
-router.get("/Cheesfolio", (req, res) => {
-  res.send("Welcome to the Cheese Folio!");
+router.get("/cheesefolio", (req, res) => {
+  res.render("cheesefolio");
 });
 
 router.post("/addCheese", (req, res) => {
