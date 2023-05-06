@@ -1,9 +1,9 @@
-const email = document.querySelector("#email-signup").value.trim();
-const username = document.querySelector("#username-signup").value.trim();
-const password = document.querySelector("#password-signup").value.trim();
-
 const signupFormHandler = async (event) => {
   event.preventDefault();
+
+  let email = $("#email-signup").val().trim();
+  const username = document.querySelector("#username-signup").value.trim();
+  const password = document.querySelector("#password-signup").value.trim();
 
   if (username && email && password) {
     const response = await fetch("/api/users/signup", {
@@ -22,7 +22,7 @@ const signupFormHandler = async (event) => {
 };
 
 const checkEmail = async (event) => {
-  console.log("checkEmail function is running");
+  let email = $("#email-signup").val().trim();
   event.preventDefault();
 
   const response = await fetch("/api/users/email", {
@@ -31,7 +31,9 @@ const checkEmail = async (event) => {
     headers: { "Content-Type": "application/json" },
   });
 
-  console.log(response);
+  if (!response.ok) {
+    $("#email-taken").removeClass("hide");
+  }
 };
 
 document

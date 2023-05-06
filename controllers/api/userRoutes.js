@@ -35,15 +35,6 @@ router.post("/login", async (req, res) => {
 
 router.post("/signup", async (req, res) => {
   try {
-    let userData = await User.findOne({ where: { email: req.body.email } });
-
-    if (userData) {
-      res.status(400).json({
-        message:
-          "Looks like you already have an account, please try logging in.",
-      });
-      return;
-    }
     userData = await User.create({
       name: req.body.username,
       email: req.body.email,
@@ -68,19 +59,19 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-router.post("/email"),
-  async (req, res) => {
-    console.log("email-signup route is running");
-    try {
-      let userData = await User.findOne({ where: { email: req.body.email } });
+router.post("/email", async (req, res) => {
+  try {
+    let accountExists = await User.findOne({
+      where: { email: req.body.email },
+    });
 
-      if (userData) {
-        res.status(400).send({ emailFound: true });
-      } else {
-        res.status(200).send({ emailFound: false });
-      }
-    } catch {}
-  };
+    if (accountExists) {
+      res.sendStatus(400);
+    } else {
+      res.sendStatus(200);
+    }
+  } catch {}
+});
 
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
