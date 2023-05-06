@@ -25,7 +25,7 @@ router.get("/cheesefolio", withAuth, (req, res) => {
 });
 
 router.get("/cheesefolio-update", withAuth, (req, res) => {
-  res.send("update your cheesefolio");
+  res.render("cheesefolio-update");
 });
 
 // Chat Room API routes

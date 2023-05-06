@@ -49,6 +49,7 @@ router.post("/signup", async (req, res) => {
       email: req.body.email,
       password: req.body.password,
     });
+
     console.log("Users auto-generated ID", userData.id);
 
     req.session.save(() => {
@@ -57,10 +58,12 @@ router.post("/signup", async (req, res) => {
 
       console.log("thank you for signing up");
 
-      res.json({
-        user: userData,
-        message: "Thank you for signing up. You are now logged in!",
-      });
+      res
+        .json({
+          user: userData,
+          message: "Thank you for signing up. You are now logged in!",
+        })
+        .redirect("/cheesefolio-update");
     });
   } catch (err) {
     console.log("err", err);

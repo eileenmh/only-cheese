@@ -35,18 +35,15 @@ User.init(
         len: [8],
       },
     },
-    // bio: {
-    //   type: DataTypes.TEXT,
-    // },
-    // city: {
-    //   type: DataTypes.STRING,
-    // },
-    // state: {
-    //   type: DataTypes.STRING,
-    // },
-    // user_image: {
-    //   type: DataTypes.STRING,
-    // },
+    bio: {
+      type: DataTypes.TEXT,
+    },
+    city: {
+      type: DataTypes.STRING,
+    },
+    state: {
+      type: DataTypes.STRING,
+    },
     // cheeses: {
     //   type: DataTypes.ARRAY, // Jamie - update to array of cheese models
     //   allowNull: true,
