@@ -68,6 +68,20 @@ router.post("/signup", async (req, res) => {
   }
 });
 
+router.post("/email"),
+  async (req, res) => {
+    console.log("email-signup route is running");
+    try {
+      let userData = await User.findOne({ where: { email: req.body.email } });
+
+      if (userData) {
+        res.status(400).send({ emailFound: true });
+      } else {
+        res.status(200).send({ emailFound: false });
+      }
+    } catch {}
+  };
+
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
