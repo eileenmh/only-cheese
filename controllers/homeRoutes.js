@@ -36,13 +36,15 @@ REQUIRE LOGIN via withAuth
 ***/
 // Cheesefolio (i.e., Profile Page)
 router.get("/cheesefolio", withAuth, (req, res) => {
-  res.render("placeholder", {
+  res.render("cheesefolio", {
     logged_in: req.session.logged_in,
   });
 });
 
 router.get("/cheesefolio-update", withAuth, (req, res) => {
-  res.render("cheesefolio-update");
+  res.render("cheesefolio-update", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get("/cheese-date", withAuth, (req, res) => {
