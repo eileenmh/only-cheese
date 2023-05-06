@@ -1,6 +1,6 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const withAuth = require("../utils/auth");
+const { User } = require("../models");
 
 // Landing Page
 router.get("/", (req, res) => {
@@ -34,10 +34,17 @@ router.get("/login", (req, res) => {
 /***
 REQUIRE LOGIN via withAuth
 ***/
-// Cheesefolio (i.e., Profile Page)
-router.get("/cheesefolio", withAuth, (req, res) => {
+router.get("/cheesefolio", withAuth, async (req, res) => {
+  let userData = await User.findByPk(req.session.user_id);
+
+  console.log(userData);
+
   res.render("cheesefolio", {
     logged_in: req.session.logged_in,
+    name: userData.name,
+    bio: userData.bio,
+    city: userData.city,
+    state: userData.state,
   });
 });
 
