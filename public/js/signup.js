@@ -13,6 +13,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
+      document.location.replace("/cheesefolio-update");
     } else {
       alert("User or Email Already Exist.");
     }
@@ -37,5 +38,3 @@ const checkEmail = async (event) => {
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
-
-$("#email-signup").on("input", checkEmail);

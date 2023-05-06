@@ -47,14 +47,7 @@ router.post("/signup", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      console.log("thank you for signing up");
-
-      res
-        .json({
-          user: userData,
-          message: "Thank you for signing up. You are now logged in!",
-        })
-        .redirect("/cheesefolio-update");
+      res.sendStatus(200);
     });
   } catch (err) {
     console.log("err", err);
