@@ -4,16 +4,31 @@ const withAuth = require("../utils/auth");
 
 // Landing Page
 router.get("/", (req, res) => {
-  res.render("homepage");
+  res.render("homepage", {
+    logged_in: req.session.logged_in,
+  });
 });
 
+// Sign-Up Page -- if already logged in, redirect to homepage
 router.get("/signup", (req, res) => {
-  res.render("signup");
+  if (req.session.logged_in) {
+    res.redirect("/");
+  } else {
+    res.render("signup", {
+      logged_in: req.session.logged_in,
+    });
+  }
 });
 
-// Login Page
+// Login Page -- if already logged in, redirect to homepage
 router.get("/login", (req, res) => {
-  res.render("login");
+  if (req.session.logged_in) {
+    res.redirect("/");
+  } else {
+    res.render("login", {
+      logged_in: req.session.logged_in,
+    });
+  }
 });
 
 /***
@@ -21,16 +36,26 @@ REQUIRE LOGIN via withAuth
 ***/
 // Cheesefolio (i.e., Profile Page)
 router.get("/cheesefolio", withAuth, (req, res) => {
-  res.send("Welcome to the Cheese Folio!");
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 router.get("/cheesefolio-update", withAuth, (req, res) => {
   res.render("cheesefolio-update");
 });
 
+router.get("/cheese-date", withAuth, (req, res) => {
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
+});
+
 // Chat Room API routes
 router.get("/chat-room", withAuth, (req, res) => {
-  res.send("Welcome to the OnlyCheese* Chat Room!");
+  res.render("placeholder", {
+    logged_in: req.session.logged_in,
+  });
 });
 
 module.exports = router;
