@@ -21,18 +21,18 @@ const signupFormHandler = async (event) => {
   }
 };
 
-// const checkEmail = async (event) => {
-//   console.log("checkEmail function is running");
-//   event.preventDefault();
+const checkEmail = async (event) => {
+  console.log("checkEmail function is running");
+  event.preventDefault();
 
-//   const response = await fetch("/api/users/email", {
-//     method: "POST",
-//     body: JSON.stringify({ email }),
-//     headers: { "Content-Type": "application/json" },
-//   });
+  const response = await fetch("/api/users/email", {
+    method: "POST",
+    body: JSON.stringify({ email }),
+    headers: { "Content-Type": "application/json" },
+  });
 
-//   console.log(response);
-// };
+  console.log(response);
+};
 
 document
   .querySelector(".signup-form")
