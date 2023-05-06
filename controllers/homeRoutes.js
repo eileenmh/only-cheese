@@ -24,6 +24,10 @@ router.get("/cheesefolio", withAuth, (req, res) => {
   res.send("Welcome to the Cheese Folio!");
 });
 
+router.get("/cheesefolio-update", withAuth, (req, res) => {
+  res.send("update your cheesefolio");
+});
+
 // Chat Room API routes
 router.get("/chat-room", withAuth, (req, res) => {
   res.send("Welcome to the OnlyCheese* Chat Room!");
