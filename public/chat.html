@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Cheese Chat</title>
+    <title>Cheese Raclette</title>
     <link rel="stylesheet" href="./css/chat.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"></script>
+    <script src="https://kit.fontawesome.com/c9a64129a0.js" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div class="container">
-      <h1>Cheese Chat</h1>
+    <nav class="navbar is-fixed-top is-transparent is-size-3" id="burger">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/" id="logo">
+          <img src="../assets/images/noun-cheese-5009417.svg" id="cheese-wine-icon">
+        </a>
+      </div>
+          <a role="button" id="burger" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="pages">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+      <div id="pages" class="navbar-menu">
+        <div class="navbar-start">
+          <a class="navbar-item" href="cheesefolio">My Cheesefolio</a>
+          <a class="navbar-item" href="cheese-date">Cheese Date</a>
+          <a class="navbar-item" href="chat.html">Chat Raclette</a>
+        </div>
+      </div>
+    </nav>
         <div class="chat-container">
           <ul id="messages"></ul>
           <form id="form" action="">
           <input id="input" autocomplete="off" /><button>Send</button>
           </form>
         </div>
-    </div>
     <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
-    <script src="./js/chat.js"></script>   
+    <script src="./js/chat.js"></script>  
+    <script>
+      var burger = document.getElementById('burger');
+      var pages = document.getElementById('pages');
+    
+      burger.addEventListener('click', function() {
+        pages.classList.toggle('is-active');
+      });
+    </script>
   </body>
 </html>
-
