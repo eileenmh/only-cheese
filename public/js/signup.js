@@ -30,6 +30,8 @@ const checkEmail = async (event) => {
     headers: { "Content-Type": "application/json" },
   });
 
+  console.log(response);
+
   if (!response.ok) {
     $("#email-taken").removeClass("hide");
   }
@@ -38,3 +40,5 @@ const checkEmail = async (event) => {
 document
   .querySelector(".signup-form")
   .addEventListener("submit", signupFormHandler);
+
+$("#email-signup").on("input", checkEmail);
