@@ -1,7 +1,11 @@
 async function getCheeses() {
   const cheeseDataRaw = await fetch("/api/cheese/all");
-  const cheeseDataUnpacked = await cheeseDataRaw.json();
-  console.log(cheeseDataUnpacked);
+  const cheeseData = await cheeseDataRaw.json();
+  for (let i = 0; i < cheeseData.length; i++) {
+    $("#cheeses").append(
+      `<option value=${cheeseData[i].id}>${cheeseData[i].name}</option>`
+    );
+  }
 }
 
 const createProfileFormHandler = async (event) => {
