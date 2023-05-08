@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { where } = require("sequelize");
 const { User } = require("../../models");
 
 router.post("/login", async (req, res) => {
@@ -28,6 +29,25 @@ router.post("/login", async (req, res) => {
 
       res.json({ user: userData, message: "You are now logged in!" });
     });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.post("/create-profile", async (req, res) => {
+  try {
+    const createProfile = await User.update(
+      {
+        bio: req.body.bio,
+        city: req.body.city,
+        state: req.body.state,
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    );
   } catch (err) {
     res.status(400).json(err);
   }
