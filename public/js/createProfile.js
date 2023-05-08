@@ -1,3 +1,9 @@
+async function getCheeses() {
+  const cheeseDataRaw = await fetch("/api/cheese/all");
+  const cheeseDataUnpacked = await cheeseDataRaw.json();
+  console.log(cheeseDataUnpacked);
+}
+
 const createProfileFormHandler = async (event) => {
   event.preventDefault();
   console.log("profile save is running");
@@ -20,3 +26,5 @@ const createProfileFormHandler = async (event) => {
 };
 
 $("#create-btn").on("click", createProfileFormHandler);
+
+getCheeses();
