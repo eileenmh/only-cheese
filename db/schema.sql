@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS onlycheese;
+CREATE DATABASE onlycheese;

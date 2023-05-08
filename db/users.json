@@ -1,0 +1,38 @@
+[
+    {
+      "username": "Remy",
+      "location": "Paris",
+      "favoritecheese": "Roquefort",
+      "status": "Why can't this Silly Human cook on his own...",
+      "bio": "I love cheeses of all kinds Roquefort is my favorite. I am fond of pairing my cheese with Sauternes as well as some Almonds and dried fruits."
+    },
+    {
+        "username": "Fievel",
+        "location": "Hamburg",
+        "favoritecheese": "Scallion Onion Cheddar",
+        "status": "New York here we come!",
+        "bio": "Scallion Onion Cheddar is my Favorite, and nothing suits it better than a nice breakfast or quiche."
+    },
+    {
+        "username": "Bernard",
+        "location": "Louisiana",
+        "favoritecheese": "Cheddar",
+        "status": "Fairly sure Bianca is mad at me, anyone want some Cheddar?",
+        "bio": "Saving the Day is my thing and I am fine eating a slice of Cheddar on the way!"
+    },
+    {
+        "username": "Bianca",
+        "location": "Louisiana",
+        "favoritecheese": "Karaván",
+        "status": "How I miss my home and the wonderful food, but all for a worthy cause!",
+        "bio": "I love Karaván cheese it reminds me of home,  It is so good with pecans and Cabernet Sauvignon."
+    },
+    {
+        "username": "Stuart",
+        "location": "New York",
+        "favoritecheese": "Roasted Garlic Cheddar",
+        "status": "I love my new family and their cheese taste",
+        "bio": "I love Roasted Garlic Cheddar on toasted crackers, but my new family is starting to change my mind to Fiesta Cheddar!"
+    }
+  ]
+  

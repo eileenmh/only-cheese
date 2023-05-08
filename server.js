@@ -1,17 +1,19 @@
 const path = require("path");
 const express = require("express");
 const session = require("express-session");
+const routes = require("./controllers");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
-
+const chatserver = require("./chatroom/server");
 // const routes = require('./controllers');
-// const sequelize = require('./config/connection');
+const sequelize = require("./config/connection");
 // const helpers = require('./utils/helpers');
 
 const app = express();
+
 const PORT = process.env.PORT || 3001;
 
-// Sets up session and connect to our Sequelize db
+// // Sets up session and connect to our Sequelize db
 const sess = {
   secret: "Super secret secret",
   // Express session will use cookies by default, but we can specify options for those cookies by adding a cookies property to our session options.
@@ -35,10 +37,18 @@ const sess = {
 
 app.use(session(sess));
 
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({});
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
+
+// Route to display static src images
+app.get("/static", (req, res) => {
+  res.render("static");
+});
+app.use(express.static("public"));
+  
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,14 +56,14 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () =>
-    console.log(
-      `\nServer running on port ${PORT}. Visit http://localhost:${PORT}!`
-    )
-  );
+chatserver.server.listen(3000, () => {
+  console.log("chat server listening on 3000");
 });
 
-app.listen(3001, () => {
-  console.log("Server running on port 3001");
+sequelize.sync().then(() => {
+  app.listen(PORT, () =>
+    console.log(
+      `\nServer running on port ${PORT}. Visit http://localhost:${PORT}`
+    )
+  );
 });
