@@ -14,7 +14,6 @@ getCheeses();
 
 const createProfileFormHandler = async (event) => {
   event.preventDefault();
-  console.log("profile save is running");
 
   let bio = $("#bio").val().trim();
   let city = $("#city").val().trim();
@@ -27,7 +26,7 @@ const createProfileFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    // document.location.replace("/cheesefolio");
+    document.location.replace("/cheesefolio");
   } else {
     alert("There was an error with saving your profile.");
   }
@@ -35,5 +34,4 @@ const createProfileFormHandler = async (event) => {
 
 $(document).ready(function () {
   $("#create-btn").on("click", createProfileFormHandler);
-  console.log($("#create-btn"));
 });

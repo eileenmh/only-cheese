@@ -36,7 +36,6 @@ router.post("/login", async (req, res) => {
 router.post("/create-profile", async (req, res) => {
   try {
     const loggedInUser = await User.findByPk(req.session.user_id);
-    console.log(loggedInUser);
     loggedInUser.set({
       bio: req.body.bio,
       city: req.body.city,
@@ -44,6 +43,7 @@ router.post("/create-profile", async (req, res) => {
     });
 
     await loggedInUser.save();
+    res.redirect("/cheesefolio");
   } catch (err) {
     res.status(400).json(err);
   }
