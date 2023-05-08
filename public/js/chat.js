@@ -1,4 +1,4 @@
-var socket = io("ws://localhost:3000");
+var socket = io("https://only-cheese.herokuapp.com/");
 
 var messages = document.getElementById('messages');
 var form = document.getElementById('form');
