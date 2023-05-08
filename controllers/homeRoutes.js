@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User } = require("../models");
+const { Op } = require("sequelize");
 
 // Landing Page
 router.get("/", (req, res) => {
@@ -54,8 +55,26 @@ router.get("/cheesefolio-update", withAuth, (req, res) => {
   });
 });
 
-router.get("/cheese-date", withAuth, (req, res) => {
-  res.render("placeholder", {
+router.get("/cheesefolio-create", withAuth, (req, res) => {
+  res.render("cheesefolio-create", {
+    logged_in: req.session.logged_in,
+  });
+});
+
+router.get("/cheese-date", withAuth, async (req, res) => {
+  const userData = await User.findAll({
+    where: {
+      id: {
+        [Op.not]: req.session.user_id,
+      },
+    },
+  });
+
+  const users = userData.map((user) => user.get({ plain: true }));
+  console.log(users);
+
+  res.render("cheese-date", {
+    users: users,
     logged_in: req.session.logged_in,
   });
 });

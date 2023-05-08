@@ -33,6 +33,25 @@ router.post("/login", async (req, res) => {
   }
 });
 
+router.post("/create-profile", async (req, res) => {
+  try {
+    const createProfile = await User.update(
+      {
+        bio: req.body.bio,
+        city: req.body.city,
+        state: req.body.state,
+      },
+      {
+        where: {
+          id: req.session.user_id,
+        },
+      }
+    );
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 router.post("/signup", async (req, res) => {
   try {
     userData = await User.create({
