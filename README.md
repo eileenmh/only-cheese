@@ -20,6 +20,17 @@ VS Code was used as the coding base and several dependencies were utilized:
 -Connect-session-sequelize
 -Socket.io
 
+## Getting Started
+
+In order to access this app the user can visit the following webpage:
+ https://only-cheese.herokuapp.com/ 
+
+ The user can then sign up by creating a user profile with their name, bio, location, and then add preferred cheeses. Once the user logs in, they have access to a their own "Cheesefolio", "Cheese Date", and "Chat Raclette" pages. 
+
+"Cheesefolio" is a user's individual profile.
+ "Cheese Date" is a gallery page that allows users to see other users "Cheesefolios". 
+ "Chat Raclette" is a chat room that uses socket.io to run. When a user visits "Chat Raclette" they will be prompted to add their username and then they will be put in a chat room with other users"
+
 
 ## Features
 
