@@ -1,60 +1,58 @@
-<main class="mt-5">
-    <section class="has-text-centered">
-        <h2 class="title is-1">Create Your Profile</h2>
-        <p class="block">To start connecting with other cheese lovers, fill out your profile.</p>
-    </section>
-    <section>
-        <div class="container is-max-desktop">
-            <form>
-                <div class="field">
-                    <label class="label" for="bio">Bio</label>
+<script type="application/javascript" src="./js/createProfile.js"></script>
+<section class="has-text-centered">
+    <h2 class="title is-1">Create Your Profile</h2>
+    <p class="block">To start connecting with other cheese lovers, fill out your profile.</p>
+</section>
+<section>
+    <div class="container is-max-desktop">
+        <form>
+            <div class="field">
+                <label class="label" for="bio">Bio</label>
+                <div class="control has-icons-left">
+                    <textarea id="bio" class="textarea" name="bio" rows="2"></textarea>
+                    <span class="icon is-small is-left">
+                        <i class="fa-thin fa-book-user"></i>
+                    </span>
+                </div>
+            </div>
+
+            <div class="columns">
+
+                <div class="field column">
+                    <label class="label" for="city">City</label>
                     <div class="control has-icons-left">
-                        <textarea id="bio" class="textarea" name="bio" rows="2"></textarea>
+                        <input id="city" class="input" type="text" required>
                         <span class="icon is-small is-left">
-                            <i class="fa-thin fa-book-user"></i>
+                            <i class="fa-solid fa-city"></i>
                         </span>
                     </div>
                 </div>
 
-                <div class="columns">
-
-                    <div class="field column">
-                        <label class="label" for="city">City</label>
-                        <div class="control has-icons-left">
-                            <input id="city" class="input" type="text" required>
-                            <span class="icon is-small is-left">
-                                <i class="fa-solid fa-city"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="field column">
-                        <label class="label" for="state">State</label>
-                        <div class="control has-icons-left">
-                            <input id="state" class="input" type="text" required>
-                            <span class="icon is-small is-left">
-                                <i class="fa-solid fa-flag-usa"></i>
-                            </span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="field">
-                    <label class="label" for="cheeses">My favorite cheeses</label>
+                <div class="field column">
+                    <label class="label" for="state">State</label>
                     <div class="control has-icons-left">
-                        <select name="cheeses" id="cheeses" multiple>
-                        </select>
+                        <input id="state" class="input" type="text" required>
+                        <span class="icon is-small is-left">
+                            <i class="fa-solid fa-flag-usa"></i>
+                        </span>
                     </div>
+                </div>
 
+            </div>
+
+            <div class="field">
+                <label class="label" for="cheeses">My favorite cheeses</label>
+                <div class="control has-icons-left">
+                    <select name="cheeses" id="cheeses" multiple>
+                    </select>
                 </div>
-                <div class="field">
-                    <div class="control">
-                        <button type="submit" id="create-btn" class="button mt-2">Save</button>
-                    </div>
+
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button type="submit" id="create-btn" class="button mt-2">Save</button>
                 </div>
-            </form>
-        </div>
-    </section>
-</main>
-<script type="application/javascript" src="./js/createProfile.js"></script>
+            </div>
+        </form>
+    </div>
+</section>
