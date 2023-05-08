@@ -18,10 +18,11 @@ const createProfileFormHandler = async (event) => {
   let bio = $("#bio").val().trim();
   let city = $("#city").val().trim();
   let state = $("#state").val().trim();
+  let cheeses = $("#cheeses").val();
 
   const response = await fetch("/api/users/create-profile", {
     method: "POST",
-    body: JSON.stringify({ bio, city, state }),
+    body: JSON.stringify({ bio, city, stat, cheeses }),
     headers: { "Content-Type": "application/json" },
   });
 

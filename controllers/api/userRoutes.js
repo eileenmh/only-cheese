@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User, Cheese } = require("../../models");
 
 router.post("/login", async (req, res) => {
   try {
@@ -42,9 +42,15 @@ router.post("/create-profile", async (req, res) => {
       state: req.body.state,
     });
 
+    await loggedInUser.setCheese([]);
+
+    req.body.cheeses.forEach((cheese) => {
+      loggedInUser.addCheese(cheese);
+    });
+
     await loggedInUser.save();
-    res.redirect("/cheesefolio");
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
