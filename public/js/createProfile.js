@@ -1,3 +1,5 @@
+console.log("script is working on page");
+
 async function getCheeses() {
   const cheeseDataRaw = await fetch("/api/cheese/all");
   const cheeseData = await cheeseDataRaw.json();
@@ -7,6 +9,8 @@ async function getCheeses() {
     );
   }
 }
+
+getCheeses();
 
 const createProfileFormHandler = async (event) => {
   event.preventDefault();
@@ -30,5 +34,3 @@ const createProfileFormHandler = async (event) => {
 };
 
 $("#create-btn").on("click", createProfileFormHandler);
-
-getCheeses();

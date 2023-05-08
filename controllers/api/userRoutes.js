@@ -35,18 +35,15 @@ router.post("/login", async (req, res) => {
 
 router.post("/create-profile", async (req, res) => {
   try {
-    const createProfile = await User.update(
-      {
-        bio: req.body.bio,
-        city: req.body.city,
-        state: req.body.state,
-      },
-      {
-        where: {
-          id: req.session.user_id,
-        },
-      }
-    );
+    const loggedInUser = await User.findByPk(req.session.user_id);
+    console.log(loggedInUser);
+    loggedInUser.set({
+      bio: req.body.bio,
+      city: req.body.city,
+      state: req.body.state,
+    });
+
+    await loggedInUser.save();
   } catch (err) {
     res.status(400).json(err);
   }
