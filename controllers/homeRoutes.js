@@ -54,6 +54,12 @@ router.get("/cheesefolio-update", withAuth, (req, res) => {
   });
 });
 
+router.get("/cheesefolio-create", withAuth, (req, res) => {
+  res.render("cheesefolio-create", {
+    logged_in: req.session.logged_in,
+  });
+});
+
 router.get("/cheese-date", withAuth, (req, res) => {
   res.render("placeholder", {
     logged_in: req.session.logged_in,

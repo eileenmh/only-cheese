@@ -13,7 +13,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/cheesefolio-update");
+      document.location.replace("/cheesefolio-create");
     } else {
       alert("User or Email Already Exist.");
     }
