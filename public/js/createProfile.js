@@ -33,4 +33,7 @@ const createProfileFormHandler = async (event) => {
   }
 };
 
-$("#create-btn").on("click", createProfileFormHandler);
+$(document).ready(function () {
+  $("#create-btn").on("click", createProfileFormHandler);
+  console.log($("#create-btn"));
+});
