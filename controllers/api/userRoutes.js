@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, User_Cheese } = require("../../models");
+const { User, UserCheese } = require("../../models");
 
 router.post("/login", async (req, res) => {
   try {
@@ -42,21 +42,21 @@ router.post("/create-profile", async (req, res) => {
       state: req.body.state,
     });
 
-    await User_Cheese.destroy({
+    await UserCheese.destroy({
       where: {
         user_id: req.session.user_id,
       },
     });
 
     for (let i = 0; i < req.body.cheeses.length; i++) {
-      User_Cheese.create({
+      UserCheese.create({
         user_id: req.session.user_id,
         cheese_id: cheeses[i],
       });
     }
 
     await loggedInUser.save();
-    await User_Cheese.save();
+    await UserCheese.save();
   } catch (err) {
     res.status(400).json(err);
   }
