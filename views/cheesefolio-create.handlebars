@@ -1,6 +1,62 @@
-<main>
+<main class="mt-5">
     <section class="has-text-centered">
         <h2 class="title is-1">Create Your Profile</h2>
         <p class="block">To start connecting with other cheese lovers, fill out your profile.</p>
+    </section>
+    <section>
+        <div class="container is-max-desktop">
+            <form>
+                <div class="field">
+                    <label class="label" for="bio">Bio</label>
+                    <div class="control has-icons-left">
+                        <textarea id="bio" class="textarea" name="bio" rows="2"></textarea>
+                        <span class="icon is-small is-left">
+                            <i class="fa-thin fa-book-user"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="columns">
+
+                    <div class="field column">
+                        <label class="label" for="city">City</label>
+                        <div class="control has-icons-left">
+                            <input id="city" class="input" type="text" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-city"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="field column">
+                        <label class="label" for="state">State</label>
+                        <div class="control has-icons-left">
+                            <input id="state" class="input" type="text" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa-solid fa-flag-usa"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label class="label" for="cheeses">My favorite cheeses</label>
+                    <div class="control has-icons-left">
+                        <select name="cheeses" id="cheeses" multiple>
+                            <option value="cheese1">Cheese 1</option>
+                            <option value="cheese2">Cheese 2</option>
+                            <option value="cheese3">Cheese 3</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" id="createbtn" class="button mt-2">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
 </main>
