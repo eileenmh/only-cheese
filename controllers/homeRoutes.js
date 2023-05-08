@@ -71,7 +71,6 @@ router.get("/cheese-date", withAuth, async (req, res) => {
   });
 
   const users = userData.map((user) => user.get({ plain: true }));
-  console.log(users);
 
   res.render("cheese-date", {
     users: users,
