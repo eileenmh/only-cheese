@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
 const { User } = require("../models");
+const { Op } = require("sequelize");
 
 // Landing Page
 router.get("/", (req, res) => {
@@ -61,7 +62,13 @@ router.get("/cheesefolio-create", withAuth, (req, res) => {
 });
 
 router.get("/cheese-date", withAuth, async (req, res) => {
-  const userData = await User.findAll();
+  const userData = await User.findAll({
+    where: {
+      id: {
+        [Op.not]: req.session.user_id,
+      },
+    },
+  });
 
   const users = userData.map((user) => user.get({ plain: true }));
   console.log(users);
