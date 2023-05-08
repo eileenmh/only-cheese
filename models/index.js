@@ -1,5 +1,7 @@
 const User = require("./User");
-// const Cheese = require('./cheese')
+const Cheese = require("./Cheese");
 
-module.exports = { User };
-// module.exports = { Cheese };
+User.belongsToMany(Cheese, { through: "User_Cheese" });
+Cheese.belongsToMany(User, { through: "User_Cheese" });
+
+module.exports = { User, Cheese };

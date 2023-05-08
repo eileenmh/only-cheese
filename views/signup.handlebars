@@ -1,19 +1,18 @@
-<main>
-    <section class="has-text-centered">
+<section class="has-text-centered">
         <h2 class="title is-1">Create an Account</h2>
         <p class="block">Please fill in this form to create an account.</p>
     </section>
 
     <section>
         <div class="container is-max-desktop">
-            <form class="mx-5 signup-form">
+            <form class="signup-form">
 
                 <div class="field">
-                    <label class="label" for="name">Username</label>
+                    <label class="label" for="username-signup">Username</label>
                     <div class="control has-icons-left">
                         <input id="username-signup" class="input" type="text" placeholder="Enter your username"
-                            name="userName" id="name" required>
-                        <span class="icon is-left">
+                            name="userName" required>
+                        <span class="icon is-small is-left">
                             <i class="fas fa-cheese"></i>
                         </span>
                     <p id="username-taken" class="help is-danger hide">This username is taken.</p>
@@ -54,7 +53,5 @@
         </div>
 
     </section>
-
-</main>
 
 <script type="application/javascript" src="./js/signup.js"></script>
