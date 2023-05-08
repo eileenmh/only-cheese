@@ -60,8 +60,14 @@ router.get("/cheesefolio-create", withAuth, (req, res) => {
   });
 });
 
-router.get("/cheese-date", withAuth, (req, res) => {
-  res.render("placeholder", {
+router.get("/cheese-date", withAuth, async (req, res) => {
+  const userData = await User.findAll();
+
+  const users = userData.map((user) => user.get({ plain: true }));
+  console.log(users);
+
+  res.render("cheese-date", {
+    users: users,
     logged_in: req.session.logged_in,
   });
 });
