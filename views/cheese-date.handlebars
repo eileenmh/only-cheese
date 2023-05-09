@@ -1,35 +1,6 @@
-<style>
-  .user-name {
-    text-decoration: underline;
-    font-weight: 900;
-    font-size: larger;
-    color: #615a00;
-  }
-  
-  .user-bio {
-   font-weight: 900;
-   color: black
-  }
-  
-  .user-location {
-    font-weight: 900;
-    color: black
-  }
-</style>
-
 <h2 class="title is-1 has-text-centered">Cheese Date</h2>
 <div class="container is-max-desktop is-flex is-flex-wrap-wrap is-justify-content-space-evenly">
   {{#each users as |user|}}
-    <div class="card">
-      <div class="card-content">
-        <div class="media">
-          <div class="media-content has-text-right">
-            <p class="title is-4 user-name">{{user.name}}</p>
-            <p class="subtitle is-6 user-bio">{{user.bio}}</p>
-            <p class="subtitle is-6 user-location">{{user.city}}, {{user.state}}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  {{> user-card}}
   {{/each}}
 </div>

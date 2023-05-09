@@ -1,5 +1,14 @@
-<section class="card">
-    <h3>{{name}}</h3>
-    <p>{{city}}, {{state}}</p>
-    <p>{{bio}}</p>
-</section>
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content has-text-right">
+            <p class="title is-4 user-name">{{name}}</p>
+            <p class="subtitle is-6 user-bio">{{bio}}</p>
+            <p class="subtitle is-6 user-location">{{city}}, {{state}}</p>
+            {{#each cheesesName}}
+            <li>{{this}}</li>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
