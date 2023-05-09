@@ -56,9 +56,9 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-chatserver.server.listen(3000, () => {
-  console.log("chat server listening on 3000");
-});
+// chatserver.server.listen(PORT, () => {
+//   console.log(`chat server listening on ${PORT}`);
+// });
 
 sequelize.sync().then(() => {
   app.listen(PORT, () =>

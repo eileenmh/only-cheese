@@ -1,4 +1,4 @@
-var socket = io();
+var socket = io("https://limitless-reaches-73344.herokuapp.com/");
 
 var messages = document.getElementById("messages");
 var form = document.getElementById("form");
