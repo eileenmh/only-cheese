@@ -1,36 +1,8 @@
-const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
 const User = require("./User");
 const Cheese = require("./Cheese");
+const UserCheese = require("./UserCheese");
 
-class UserCheese extends Model {}
-UserCheese.init(
-  {
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: User,
-        key: "id",
-      },
-    },
-    cheese_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: Cheese,
-        key: "id",
-      },
-    },
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: "user_cheese",
-  }
-);
-
-User.belongsToMany(Cheese, { through: UserCheese });
-Cheese.belongsToMany(User, { through: UserCheese });
+User.belongsToMany(Cheese, { through: UserCheese, foreignKey: "user_id" });
+Cheese.belongsToMany(User, { through: UserCheese, foreignKey: "cheese_id" });
 
 module.exports = { User, Cheese, UserCheese };

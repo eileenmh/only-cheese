@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const withAuth = require("../utils/auth");
-const { User } = require("../models");
+const { User, UserCheese, Cheese } = require("../models");
 const { Op } = require("sequelize");
 
 // Landing Page
@@ -36,9 +36,17 @@ router.get("/login", (req, res) => {
 REQUIRE LOGIN via withAuth
 ***/
 router.get("/cheesefolio", withAuth, async (req, res) => {
-  let userData = await User.findByPk(req.session.user_id);
+  let userData = await User.findByPk(req.session.user_id, {
+    include: [
+      {
+        model: Cheese,
+        through: UserCheese,
+      },
+    ],
+  });
 
-  console.log(userData);
+  const data = userData.get({ plain: true });
+  const cheeses = data.cheeses.map((cheese) => cheese.name);
 
   res.render("cheesefolio", {
     logged_in: req.session.logged_in,
@@ -46,6 +54,7 @@ router.get("/cheesefolio", withAuth, async (req, res) => {
     bio: userData.bio,
     city: userData.city,
     state: userData.state,
+    cheeses: cheeses,
   });
 });
 
@@ -68,9 +77,11 @@ router.get("/cheese-date", withAuth, async (req, res) => {
         [Op.not]: req.session.user_id,
       },
     },
+    include: [{ model: Cheese, through: UserCheese }],
   });
 
   const users = userData.map((user) => user.get({ plain: true }));
+  console.log(users);
 
   res.render("cheese-date", {
     users: users,
