@@ -81,7 +81,10 @@ router.get("/cheese-date", withAuth, async (req, res) => {
   });
 
   const users = userData.map((user) => user.get({ plain: true }));
-  console.log(users);
+  for (let i = 0; i < users.length; i++) {
+    const cheesesName = users[i].cheeses.map((cheese) => cheese.name);
+    users[i].cheesesName = cheesesName;
+  }
 
   res.render("cheese-date", {
     users: users,

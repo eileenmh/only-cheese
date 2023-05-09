@@ -44,3 +44,20 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     background-position: bottom;
 }
+
+.user-name {
+    text-decoration: underline;
+    font-weight: 900;
+    font-size: larger;
+    color: #615a00;
+  }
+  
+  .user-bio {
+   font-weight: 900;
+   color: black
+  }
+  
+  .user-location {
+    font-weight: 900;
+    color: black
+  }
