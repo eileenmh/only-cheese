@@ -1,13 +1,28 @@
+<style>
+  .user-name {
+    font-size: 24px;
+    text-decoration: underline;
+  }
+  
+  .user-bio {
+    font-size: 16px;
+  }
+  
+  .user-location {
+    font-size: 12px;
+  }
+</style>
+
 <h2 class="title is-1 has-text-centered">Cheese Date</h2>
 <div class="container is-max-desktop is-flex is-flex-wrap-wrap is-justify-content-space-evenly">
   {{#each users as |user|}}
     <div class="card">
       <div class="card-content">
         <div class="media">
-          <div class="media-content">
-            <p class="title is-4">{{user.name}}</p>
-            <p class="subtitle is-6">{{user.bio}}</p>
-            <p class="subtitle is-6">{{user.city}}, {{user.state}}</p>
+          <div class="media-content has-text-centered">
+            <p class="title is-4 user-name">{{user.name}}</p>
+            <p class="subtitle is-6 user-bio">{{user.bio}}</p>
+            <p class="subtitle is-6 user-location">{{user.city}}, {{user.state}}</p>
           </div>
         </div>
       </div>
