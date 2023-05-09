@@ -3,11 +3,10 @@ const { User, UserCheese } = require("../../models");
 
 router.post("/login", async (req, res) => {
   try {
-    console.log(req.body);
     const userData = await User.findOne({ where: { email: req.body.email } });
+    console.log("userData", userData);
 
     if (!userData) {
-      console.log("UserData null ----");
       res
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });
@@ -17,7 +16,6 @@ router.post("/login", async (req, res) => {
     const validPassword = await userData.checkPassword(req.body.password);
 
     if (!validPassword) {
-      console.log("Password invalid ----");
       res
         .status(400)
         .json({ message: "Incorrect email or password, please try again" });

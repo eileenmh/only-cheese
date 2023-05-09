@@ -44,10 +44,6 @@ User.init(
     state: {
       type: DataTypes.STRING,
     },
-    // cheeses: {
-    //   type: DataTypes.ARRAY, // Jamie - update to array of cheese models
-    //   allowNull: true,
-    // }
   },
   {
     hooks: {
