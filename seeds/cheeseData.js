@@ -6,7 +6,6 @@ const cheeseData = [
   { name: "Raclette du Valais" },
   { name: "Asiago" },
   { name: "Burrata" },
-  { name: "Cheddar" },
   { name: "Cotija" },
   { name: "Brie" },
   { name: "Colby" },
@@ -18,6 +17,16 @@ const cheeseData = [
   { name: "Roasted Garlic Cheddar" },
   { name: "Scallion Onion Cheddar" },
   { name: "Roquefort" },
+  { name: "Taleggio" },
+  { name: "Cotija" },
+  { name: "Monterey Jack"},
+  { name: "Gorgonzola"},
+  { name: "Asiago"},
+  { name: "Mozzarella"},
+  { name: "Emmental"},
+  { name: "Pecorino Toscano"},
+  { name: "Cheddar"},
+  { name: "Gouda"},
 ];
 
 const seedCheese = () => Cheese.bulkCreate(cheeseData);
