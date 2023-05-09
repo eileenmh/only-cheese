@@ -1,5 +1,3 @@
-console.log("script is working on page");
-
 async function getCheeses() {
   const cheeseDataRaw = await fetch("/api/cheese/all");
   const cheeseData = await cheeseDataRaw.json();
@@ -12,6 +10,12 @@ async function getCheeses() {
 
 getCheeses();
 
+const setValues = async (event) => {
+  const response = await fetch("/api/users/create-profile", {
+    method: "GET",
+  });
+};
+
 const createProfileFormHandler = async (event) => {
   event.preventDefault();
 
@@ -22,7 +26,7 @@ const createProfileFormHandler = async (event) => {
 
   const response = await fetch("/api/users/create-profile", {
     method: "POST",
-    body: JSON.stringify({ bio, city, stat, cheeses }),
+    body: JSON.stringify({ bio, city, state, cheeses }),
     headers: { "Content-Type": "application/json" },
   });
 

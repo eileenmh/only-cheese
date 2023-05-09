@@ -35,6 +35,8 @@ router.post("/login", async (req, res) => {
 
 router.post("/create-profile", async (req, res) => {
   try {
+    console.log(req.body);
+    console.log("session: -------", req.session);
     const loggedInUser = await User.findByPk(req.session.user_id);
     loggedInUser.set({
       bio: req.body.bio,
@@ -49,18 +51,30 @@ router.post("/create-profile", async (req, res) => {
     });
 
     for (let i = 0; i < req.body.cheeses.length; i++) {
-      UserCheese.create({
-        user_id: req.session.user_id,
-        cheese_id: cheeses[i],
-      });
+      let user_id = req.session.user_id;
+      let cheese_id = req.body.cheeses[i];
+      console.log("for loop user_id: ----- ", user_id);
+      console.log("for loop cheeses: ----- ", cheese_id);
+
+      await UserCheese.create(
+        {
+          user_id: user_id,
+          cheese_id: cheese_id,
+        },
+        {
+          fields: ["user_id", "cheese_id"],
+        }
+      );
     }
 
     await loggedInUser.save();
-    await UserCheese.save();
   } catch (err) {
+    console.log(err);
     res.status(400).json(err);
   }
 });
+
+router.get("/create-profile", async (req, res) => {});
 
 router.post("/signup", async (req, res) => {
   try {
