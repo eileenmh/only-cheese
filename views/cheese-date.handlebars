@@ -1,15 +1,19 @@
 <style>
   .user-name {
-    font-size: 24px;
     text-decoration: underline;
+    font-weight: 900;
+    font-size: larger;
+    color: #615a00;
   }
   
   .user-bio {
-    font-size: 16px;
+   font-weight: 900;
+   color: black
   }
   
   .user-location {
-    font-size: 12px;
+    font-weight: 900;
+    color: black
   }
 </style>
 
@@ -19,7 +23,7 @@
     <div class="card">
       <div class="card-content">
         <div class="media">
-          <div class="media-content has-text-centered">
+          <div class="media-content has-text-right">
             <p class="title is-4 user-name">{{user.name}}</p>
             <p class="subtitle is-6 user-bio">{{user.bio}}</p>
             <p class="subtitle is-6 user-location">{{user.city}}, {{user.state}}</p>
