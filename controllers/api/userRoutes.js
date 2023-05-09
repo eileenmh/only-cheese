@@ -53,8 +53,6 @@ router.post("/create-profile", async (req, res) => {
     for (let i = 0; i < req.body.cheeses.length; i++) {
       let user_id = req.session.user_id;
       let cheese_id = req.body.cheeses[i];
-      console.log("for loop user_id: ----- ", user_id);
-      console.log("for loop cheeses: ----- ", cheese_id);
 
       await UserCheese.create(
         {
@@ -68,6 +66,7 @@ router.post("/create-profile", async (req, res) => {
     }
 
     await loggedInUser.save();
+    res.status(200).send("Success!");
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
