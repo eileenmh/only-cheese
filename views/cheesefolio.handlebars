@@ -17,5 +17,13 @@
             <td>State</td>
             <td>{{state}}</td>
         </tr>
+        <tr>
+            <td>My Favorite Cheeses</td>
+            <td>
+            {{#each cheeses}}
+            <li>{{this}}</li>
+            {{/each}}
+            </td>
+        </tr>
     </table>
 </div>
