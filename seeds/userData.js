@@ -6,6 +6,7 @@ const userData = [
     email: "sal@hotmail.com",
     city: "Austin",
     state: "TX",
+    bio: "Hello, My name is Sal and I love Gouda",
     password: "password12345",
   },
   {
@@ -13,6 +14,7 @@ const userData = [
     email: "lernantino@gmail.com",
     city: "Austin",
     state: "TX",
+    bio: "Hello, My name is Lernantino and I love Monterey Jack",
     password: "password12345",
   },
   {
@@ -20,6 +22,7 @@ const userData = [
     email: "amiko2k20@aol.com",
     city: "Austin",
     state: "TX",
+    bio: "Hello, My name is Amiko and I love Cheddar",
     password: "password12345",
   },
   {
@@ -27,6 +30,7 @@ const userData = [
     email: "jordan99@msn.com",
     city: "Austin",
     state: "TX",
+    bio: "Hello, My name is Jordan and I love Gorgonzola",
     password: "password12345",
   },
   {
@@ -34,6 +38,7 @@ const userData = [
     email: "the_blake@yahoo.com",
     city: "Austin",
     state: "TX",
+    bio: "Hello, My name is Blake and I love Asiago",
     password: "password12345",
   },
 ];
