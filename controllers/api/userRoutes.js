@@ -35,8 +35,6 @@ router.post("/login", async (req, res) => {
 
 router.post("/create-profile", async (req, res) => {
   try {
-    console.log(req.body);
-    console.log("session: -------", req.session);
     const loggedInUser = await User.findByPk(req.session.user_id);
     loggedInUser.set({
       bio: req.body.bio,
