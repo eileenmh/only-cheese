@@ -77,9 +77,11 @@ router.get("/cheese-date", withAuth, async (req, res) => {
         [Op.not]: req.session.user_id,
       },
     },
+    include: [{ model: Cheese, through: UserCheese }],
   });
 
   const users = userData.map((user) => user.get({ plain: true }));
+  console.log(users);
 
   res.render("cheese-date", {
     users: users,
