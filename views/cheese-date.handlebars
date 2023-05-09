@@ -1,6 +1,16 @@
 <h2 class="title is-1 has-text-centered">Cheese Date</h2>
 <div class="container is-max-desktop is-flex is-flex-wrap-wrap is-justify-content-space-evenly">
-    {{#each users as |user|}}
-    {{> user-card}}
-    {{/each}}
+  {{#each users as |user|}}
+    <div class="card">
+      <div class="card-content">
+        <div class="media">
+          <div class="media-content">
+            <p class="title is-4">{{user.name}}</p>
+            <p class="subtitle is-6">{{user.bio}}</p>
+            <p class="subtitle is-6">{{user.city}}, {{user.state}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/each}}
 </div>
